@@ -14,7 +14,7 @@ async function getFilesInfo(dir) {
     const fileName = path.basename(filePath, path.extname(filePath));
     const fileExtens = path.extname(filePath).slice(1);
     const filseSize = await fsPromises.stat(filePath);
-    console.log(`${fileName} - ${fileExtens} - ${filseSize.size / 8}kb`);
+    console.log(`${fileName} - ${fileExtens} - ${filseSize.size / 1024}kb`);
     
   }
 }
