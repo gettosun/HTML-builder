@@ -2,11 +2,13 @@ const fs = require('fs');
 const path = require ('path');
 const { stdin, stdout} = process;
 const filePath = path.join(__dirname, 'text.txt')
-
+fs.appendFile(filePath, '', function(error) {
+  if(error) throw error;
+});
 stdout.write('Type some text:\n');
 
 stdin.on('data', data => {
-  if(data.toString().trim() == 'exit') {
+  if(data.toString().trim() === 'exit') {
     goodBye();
   } else {
     fs.appendFile(filePath, data.toString(), function(error) {
